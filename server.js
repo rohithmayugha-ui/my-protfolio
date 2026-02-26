@@ -26,17 +26,21 @@ pool.query(`
 `);
 
 app.post("/contact", async (req, res) => {
-  const { name, email } = req.body;
-
   try {
+    console.log("Received:", req.body);
+
+    const { name, email, message } = req.body;
+
     await pool.query(
-      "INSERT INTO contacts (name, email) VALUES ($1, $2)",
-      [name, email]
+      "INSERT INTO contacts (name, email, message) VALUES ($1, $2, $3)",
+      [name, email, message]
     );
-    res.json({ message: "Data saved successfully" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error saving data" });
+
+    res.json({ message: "Saved successfully" });
+
+  } catch (error) {
+    console.error("Database Error:", error);
+    res.status(500).json({ error: "Database failed" });
   }
 });
 
