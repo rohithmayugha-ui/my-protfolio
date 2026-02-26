@@ -20,10 +20,13 @@ const pool = new Pool({
 pool.query(`
   CREATE TABLE IF NOT EXISTS contacts (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100)
+    name TEXT,
+    email TEXT,
+    message TEXT
   );
-`);
+`).then(() => {
+  console.log("Table ready");
+}).catch(err => console.error("Table creation error:", err));
 
 app.post("/contact", async (req, res) => {
   try {
