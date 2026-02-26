@@ -4,7 +4,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
 
-  await fetch("http://localhost:3000/contact", {
+  await fetch("https://my-protfolio-mxpd.onrender.com/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
