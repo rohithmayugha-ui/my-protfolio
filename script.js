@@ -1,4 +1,4 @@
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -15,10 +15,11 @@ document.getElementById("contactForm").addEventListener("submit", async function
     });
 
     const data = await response.json();
-    console.log(data);
+    console.log("Server response:", data);
 
     if (response.ok) {
       alert("Data sent successfully!");
+      document.getElementById("contactForm").reset();
     } else {
       alert("Error sending data");
     }

@@ -30,9 +30,7 @@ pool.query(`
 
 app.post("/contact", async (req, res) => {
   try {
-    console.log("Received:", req.body);
-
-    const { name, email, message } = req.body;
+    const { name, email, message } = req.body; 
 
     await pool.query(
       "INSERT INTO contacts (name, email, message) VALUES ($1, $2, $3)",
