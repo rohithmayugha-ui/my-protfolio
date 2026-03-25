@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
@@ -42,7 +43,7 @@
     <section id="education">
         <h2>Education</h2>
         <p>BCA in Cloud Computing</p>
-        <p>Kristu Jayanti College</p>
+        <p>Kristu Jayanti deemed to be university</p>
     </section>
 
     <!-- Projects Section -->
@@ -63,6 +64,29 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+        <!-- Name -->
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <!-- Message -->
+        <textarea id="message" placeholder="Your Message" required></textarea>
+
+        <!-- Feedback (Dropdown) -->
+        <label for="feedback">Feedback:</label>
+        <select id="feedback" required>
+            <option value="">Select feedback</option>
+            <option value="Excellent">Excellent ⭐⭐⭐⭐⭐</option>
+            <option value="Good">Good ⭐⭐⭐⭐</option>
+            <option value="Average">Average ⭐⭐⭐</option>
+            <option value="Poor">Poor ⭐⭐</option>
+        </select>
+
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="responseMsg"></p>
+</section>
+<script src="script.js"></script>
+</body>
