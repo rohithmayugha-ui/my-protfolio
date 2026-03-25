@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -21,13 +26,13 @@
         </nav>
     </header>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
         <h2>About Me</h2>
         <p>Hello! I'm a BCA student passionate about web development and cloud computing.</p>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills">
         <h2>Skills</h2>
         <ul>
@@ -39,14 +44,14 @@
         </ul>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
         <h2>Education</h2>
         <p>BCA in Cloud Computing</p>
         <p>Kristu Jayanti deemed to be university</p>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
         <h2>Projects</h2>
 
@@ -59,34 +64,51 @@
             <h3>Form Backend Project</h3>
             <p>Connected frontend form with backend using Node.js.</p>
         </div>
-
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
-    <h2>Contact Me</h2>
+        <h2>Contact Me</h2>
 
-    <form id="contactForm">
-        <!-- Name -->
-        <input type="text" id="name" placeholder="Your Name" required>
+        <!-- Netlify Form Enabled -->
+        <form name="contact" method="POST" data-netlify="true" onsubmit="showMsg(event)">
+            
+            <!-- Required hidden input -->
+            <input type="hidden" name="form-name" value="contact">
 
-        <!-- Message -->
-        <textarea id="message" placeholder="Your Message" required></textarea>
+            <input type="text" name="name" placeholder="Your Name" required>
 
-        <!-- Feedback (Dropdown) -->
-        <label for="feedback">Feedback:</label>
-        <select id="feedback" required>
-            <option value="">Select feedback</option>
-            <option value="Excellent">Excellent ⭐⭐⭐⭐⭐</option>
-            <option value="Good">Good ⭐⭐⭐⭐</option>
-            <option value="Average">Average ⭐⭐⭐</option>
-            <option value="Poor">Poor ⭐⭐</option>
-        </select>
+            <textarea name="message" placeholder="Your Message" required></textarea>
 
-        <button type="submit">Send</button>
-    </form>
+            <label for="feedback">Feedback:</label>
+            <select name="feedback" required>
+                <option value="">Select feedback</option>
+                <option value="Excellent">Excellent ⭐⭐⭐⭐⭐</option>
+                <option value="Good">Good ⭐⭐⭐⭐</option>
+                <option value="Average">Average ⭐⭐⭐</option>
+                <option value="Poor">Poor ⭐⭐</option>
+            </select>
 
-    <p id="responseMsg"></p>
-</section>
-<script src="script.js"></script>
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- Success Message -->
+        <p id="responseMsg" style="display:none; color: lightgreen; margin-top:10px;">
+            Message sent successfully ✅
+        </p>
+    </section>
+
+    <!-- JS -->
+    <script>
+        function showMsg(e) {
+            e.preventDefault(); // stop reload
+
+            document.getElementById("responseMsg").style.display = "block";
+
+            // Optional: clear form
+            e.target.reset();
+        }
+    </script>
+
 </body>
+</html>
